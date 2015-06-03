@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.virtualLink.msiptv.app" >
+
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name=".library.ApplicationController"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".SplashScreen"
+            android:configChanges="orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
+        </activity>
+        <activity
+            android:name=".UrlListActivity"
+            android:label="@string/app_name"
+            android:theme="@style/translucent" >
+        </activity>
+        <activity
+            android:name=".ChannelListActivity"
+            android:label="@string/app_name"
+            android:theme="@style/translucent" >
+        </activity>
+        <activity
+            android:name=".VideoActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+        <activity
+            android:name=".MyActivity"
+            android:label="@string/title_activity_my"
+            android:theme="@style/AppBaseTheme" >
+        </activity>
+        <activity
+            android:name=".MovieListActivity"
+            android:label="MovieListActivity" >
+        </activity>
+        <activity
+            android:name=".MovieCategoryListActivity"
+            android:label="MovieCategoryListActivity" >
+        </activity>
+        <activity
+            android:name=".categoryListActivity"
+            android:label="categoryListActivity" >
+        </activity>
+        <activity
+            android:name=".VideoViewActivity"
+            android:label="Video Stream" >
+        </activity>
+        <!-- <activity -->
+        <!-- android:name=".PlayerActivity" -->
+        <!-- android:theme="@android:style/Theme.NoTitleBar.Fullscreen" /> -->
+        <!-- <activity android:name=".DetailsActivity" /> -->
+        <activity
+            android:name=".Home"
+            android:label="@string/title_activity_home" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".VideoDetails"
+            android:label="@string/title_activity_video_details" >
+        </activity>
+        <activity
+            android:name=".MusicCategoryActivities"
+            android:label="@string/title_activity_music_category_activities" >
+        </activity>
+        <activity
+            android:name=".MusicListAllCategories"
+            android:label="@string/title_activity_music_list_all_categories" >
+        </activity>
+
+        <activity
+            android:name=".Weather"
+            android:label="@string/title_activity_weather" >
+        </activity>
+    </application>
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+</manifest>

@@ -1,0 +1,375 @@
+//                                        Toast.makeText(MainActivity.this, categoryName, Toast.LENGTH_LONG).show();
+//                                        new AsyncTask<String, Void, ArrayList<TVChannel>>() {
+//                                            private ProgressDialog pDialog;
+//
+//                                            @Override
+//                                            protected ArrayList<TVChannel> doInBackground(String... arg) {
+//                                                return MainActivity.getChannelDetail(categoryName, channels);
+//                                            }
+//
+//                                            @Override
+//                                            protected void onPreExecute() {
+//                                                super.onPreExecute();
+//
+//                                                pDialog = new ProgressDialog(MainActivity.this);
+//                                                pDialog.setMessage("loading...");
+//                                                pDialog.setIndeterminate(false);
+//                                                pDialog.setCancelable(true);
+//                                                pDialog.show();
+//                                            }
+//
+//                                            @Override
+//                                            protected void onPostExecute(ArrayList<TVChannel> progs) {
+//                                                pDialog.dismiss();
+//                                                final ArrayList<TVChannel> tvChannels = progs;
+//
+//                                                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//                                                    @Override
+//                                                    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                                                        final TVChannel urlList = (TVChannel) list.getAdapter().getItem(i);
+//                                                        runOnUiThread(new Runnable() {
+//
+//                                                            @Override
+//                                                            public void run() {
+//                                                                //@TODO play video
+//
+//                                                                Toast.makeText(getBaseContext(), urlList.name + " -> " + urlList.url, Toast.LENGTH_LONG).show();
+//
+//                                                                Intent intent = new Intent();
+//                                                                Bundle b = new Bundle();
+//                                                                b.putString("url", urlList.url);
+//                                                                b.putString("name", urlList.name);
+//                                                                b.putString("category", urlList.category);
+//                                                                intent.putExtras(b);
+//                                                                setResult(1, intent);
+//                                                                finish();
+//                                                            }
+//                                                        });
+//                                                    }
+//                                                });
+//
+////                                                ArrayAdapter adapter = new ArrayAdapter<TVChannel>(MainActivity.this, android.R.layout.simple_list_item_1, tvChannels);
+////
+////                                                list.setAdapter(adapter);
+//                                            }
+//
+//                                        }.execute();
+     private class JSONParseTVStation extends android.os.AsyncTask<String, String, JSONObject> {
+         private ProgressDialog pDialog;
+
+         @Override
+         protected void onPreExecute() {
+             super.onPreExecute();
+             name = (TextView) findViewById(R.id.name);
+             txtId = (TextView) findViewById(R.id.id);
+             pDialog = new ProgressDialog(MainActivity.this);
+             pDialog.setMessage("loading...");
+             pDialog.setIndeterminate(false);
+             pDialog.setCancelable(true);
+             pDialog.show();
+         }
+
+         @Override
+         protected JSONObject doInBackground(String... args) {
+             JSONParser jParser = new JSONParser();
+             // Getting JSON from URL
+             JSONObject json = jParser.getJSONFromUrl(url);
+             return json;
+         }
+
+         @Override
+         protected void onPostExecute(JSONObject json) {
+             pDialog.dismiss();
+
+             Resources resources = getResources();
+             String channel_name = null, category = null, multicast = null, id = null;
+             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                     LinearLayout.LayoutParams.WRAP_CONTENT,
+                     LinearLayout.LayoutParams.WRAP_CONTENT
+             );
+
+
+             int leftandRight = 0, topAndButton = 0, padding = 0;
+             try {
+                 programs = json.getJSONArray(TAG_TV_PROGRAMS);
+                 Log.d("programs outline", programs.toString());
+                 for (int i = 0; i < programs.length(); i++) {
+                     JSONObject program = programs.getJSONObject(i);
+                     channel_name = program.getString(TAG_CHANNEL_NAME);
+                     category = program.getString(TAG_CATEGORY);
+                     multicast = program.getString(TAG_MULTICAST);
+                     id = program.getString(TAG_ID);
+                     Log.d("program", program.toString());
+                     channels.put(id + ":" + category, channel_name + "," + multicast);
+                     categories.add(category);
+
+                     // Create Button
+                     final Button btn = new Button(MainActivity.this);
+
+                     // Give button an ID
+                     btn.setId(program.getInt(category));
+                     btn.setText(program.getString(category));
+
+                     //set margin and padding
+                     leftandRight = (int) resources.getDimension(R.dimen.dynamicBttnLeftRight);
+                     topAndButton = (int) resources.getDimension(R.dimen.dynamicalbttnTopDown);
+                     padding = (int) resources.getDimension(R.dimen.padding);
+
+                     params.setMargins(leftandRight, topAndButton, leftandRight, topAndButton);
+                     btn.setPadding(padding, padding, padding, padding);
+
+                     // set the layoutParams on the button
+                     btn.setLayoutParams(params);
+                     //btn.setBackground(R.drawable.message_icon);
+
+                     btn.setOnClickListener(new View.OnClickListener() {
+
+                         public void onClick(View v) {
+                             final Button b = (Button) v;
+
+                             final String categoryName = b.getText().toString();
+                             Log.d(categoryName, categoryName);
+                             Toast.makeText(MainActivity.this, categoryName, Toast.LENGTH_LONG).show();
+ //                            new AsyncTask<String,Void,ArrayList<TVChannel>>(){
+ //                                private ProgressDialog pDialog;
+ //
+ //                                @Override
+ //                                protected ArrayList<TVChannel> doInBackground(String... arg) {
+ //                                    return MainActivity.getChannelDetail(categoryName,channels);
+ //                                }
+ //
+ //                                @Override
+ //                                protected void onPreExecute() {
+ //                                    super.onPreExecute();
+ //
+ //                                    pDialog = new ProgressDialog(MainActivity.this);
+ //                                    pDialog.setMessage("loading...");
+ //                                    pDialog.setIndeterminate(false);
+ //                                    pDialog.setCancelable(true);
+ //                                    pDialog.show();
+ //                                }
+ //
+ //                                @Override
+ //                                protected void onPostExecute(ArrayList<TVChannel> progs) {
+ //                                    pDialog.dismiss();
+ //                                    final  ArrayList<TVChannel> tvChannels = progs;
+ //
+ //
+ //                                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+ //                                        @Override
+ //                                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+ //                                            final  TVChannel urlList = (TVChannel)list.getAdapter().getItem(i);
+ //                                            runOnUiThread( new Runnable(){
+ //
+ //                                                @Override
+ //                                                public void run() {
+ //                                                    //@TODO play video
+ //
+ //                                                    Toast.makeText(getBaseContext(), urlList.name + " -> " + urlList.url, Toast.LENGTH_LONG).show();
+ //
+ //                                                    Intent intent = new Intent();
+ //                                                    Bundle b = new Bundle();
+ //                                                    b.putString("url", urlList.url);
+ //                                                    b.putString("name", urlList.name);
+ //                                                    b.putString("category",urlList.category);
+ //                                                    intent.putExtras(b);
+ //                                                    setResult(1, intent);
+ //                                                    finish();
+ //                                                }
+ //                                            });
+ //                                        }
+ //                                    });
+ //
+ //                                    ArrayAdapter adapter = new ArrayAdapter<TVChannel>(MainActivity.this,android.R.layout.simple_list_item_1,tvChannels);
+ //
+ //                                    list.setAdapter(adapter);
+ //                                }
+ //
+ //                            }.execute();
+
+                         }
+                     });
+
+                     //Set to 0 to remove the background or for bordeless button
+                     btn.setBackgroundResource(0);
+                     //Add button to LinearLayout
+                     buttonLayout.addView(btn);
+                     // Set click listener for button
+                     /*
+                     btn.setOnClickListener(new View.OnClickListener() {
+
+                         public void onClick(View v) {
+                             //when button click
+                            final Button b = (Button)v;
+
+                             final String categoryName = b.getText().toString();
+
+                            new AsyncTask<String,Void,ArrayList<TVChannel>>(){
+                                private ProgressDialog pDialog;
+
+                                @Override
+                                protected ArrayList<TVChannel> doInBackground(String... arg) {
+                                    return MainActivity.getChannelDetail(categoryName,channels);
+                                }
+
+                                @Override
+                                protected void onPreExecute() {
+                                    super.onPreExecute();
+
+                                    pDialog = new ProgressDialog(MainActivity.this);
+                                    pDialog.setMessage("loading...");
+                                    pDialog.setIndeterminate(false);
+                                    pDialog.setCancelable(true);
+                                    pDialog.show();
+                                }
+
+                                @Override
+                                protected void onPostExecute(ArrayList<TVChannel> progs) {
+                                    pDialog.dismiss();
+                                     final  ArrayList<TVChannel> tvChannels = progs;
+
+
+                                    list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                        @Override
+                                        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                            final  TVChannel urlList = (TVChannel)list.getAdapter().getItem(i);
+                                            runOnUiThread( new Runnable(){
+
+                                                @Override
+                                                public void run() {
+                                                    //@TODO play video
+
+                                                    Toast.makeText(getBaseContext(), urlList.name + " -> " + urlList.url, Toast.LENGTH_LONG).show();
+
+                                                    Intent intent = new Intent();
+                                                    Bundle b = new Bundle();
+                                                    b.putString("url", urlList.url);
+                                                    b.putString("name", urlList.name);
+                                                    b.putString("category",urlList.category);
+                                                    intent.putExtras(b);
+                                                    setResult(1, intent);
+                                                    finish();
+                                                }
+                                            });
+                                        }
+                                    });
+
+                                    ArrayAdapter adapter = new ArrayAdapter<TVChannel>(MainActivity.this,android.R.layout.simple_list_item_1,tvChannels);
+
+                                    list.setAdapter(adapter);
+                                }
+
+                            }.execute();
+
+
+                             //end of async
+
+                           /*  runOnUiThread(new Runnable() {
+                                 @Override
+                                 public void run() {
+                                     String categoryName = b.getText().toString();
+
+                                     oslist = MainActivity.getChannelDetail(categoryName,channels);
+
+                                   final ListView listview = (ListView)findViewById(R.id.list);
+
+                                     list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                         @Override
+                                         public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                                           final  TVChannel urlList = (TVChannel)listview.getAdapter().getItem(i);
+                                             runOnUiThread( new Runnable(){
+
+                                                 @Override
+                                                 public void run() {
+                                                     //@TODO play video
+
+                                                     Toast.makeText(getBaseContext(), urlList.name + " -> " + urlList.url, Toast.LENGTH_LONG).show();
+
+                                                     Intent intent = new Intent();
+                                                     Bundle b = new Bundle();
+                                                     b.putString("url", urlList.url);
+                                                     b.putString("name", urlList.name);
+                                                     intent.putExtras(b);
+                                                     setResult(1, intent);
+                                                     finish();
+                                                 }
+                                             });
+                                         }
+                                     });
+
+                                     ArrayAdapter adapter = new ArrayAdapter<TVChannel>(MainActivity.this,android.R.layout.simple_list_item_1,oslist);
+
+                                     list.setAdapter(adapter);
+
+                                 }
+                             });
+
+                         }
+                     });
+             */
+
+                 }
+
+             } catch (Exception ex) {
+                 //@TODO
+             }
+             //  buttonLayout.invalidate();
+         }
+    /*     @Override
+         protected void onPostExecute(JSONObject json) {
+             pDialog.dismiss();
+
+             // Getting JSON Array from URL
+             try{
+                 programs = json.getJSONArray(TAG_TV_PROGRAMS);
+                 Log.d("json", programs.toString());
+                 for (int i = 0; i < programs.length(); i++) {
+                     JSONObject c = programs.getJSONObject(i);
+                     // Storing  JSON item in a Variable
+                     String id = c.getString(TAG_ID);
+                     String channel_name = c.getString(TAG_CHANNEL_NAME);
+                     String category = c.getString(TAG_CATEGORY);
+                     String multicast = c.getString(TAG_MULTICAST);
+                     System.out.println(id + "-" + channel_name + " - category " + category + "- multicast " + multicast);
+                     channelList.add(channel_name);
+                     channel.put(channel_name, multicast);
+
+                     // Adding value HashMap key => value
+                     HashMap<String, String> map = new HashMap<String, String>();
+                     map.put(TAG_CATEGORY,category);
+                     map.put(TAG_CHANNEL_NAME, channel_name);
+
+                     oslist.add(map);
+                 }
+             }catch (Exception ex){
+                 Log.d("json_error",ex.toString());
+             }
+
+             ArrayAdapter<String>  listAdapter;
+           //  listAdapter = new ArrayAdapter<String>();
+
+            list = (ListView) findViewById(R.id.list);
+             //list.setAdapter(listAdapter);
+
+             ListAdapter adapter = new SimpleAdapter(MainActivity.this, oslist,R.layout.list_v,new String[] { TAG_CATEGORY,TAG_CHANNEL_NAME}, new int[] {R.id.id,R.id.name});
+             list.setAdapter(adapter);
+
+             list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                 @Override
+                 public void onItemClick(AdapterView<?> parent, View view,
+                                         int position, long id) {
+
+ //                    if (view== null)
+ //                        view=  View.inflate(R.layout.list_v, null); // reached in case of listview bug in android which is a little chance but to make sure not to crash on NPE
+                     String category =(String) ((TextView) view.findViewById(R.id.id)).getText();
+                     String name = (String) ((TextView) view.findViewById(R.id.name)).getText();
+                     Toast.makeText(MainActivity.this, "url: " + name, Toast.LENGTH_LONG).show();
+                   //  Toast.makeText(MainActivity.this, "You Clicked at " + oslist.get(+position).get("name"), Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MainActivity.this, "Multicast url: " + channel.get(channel_name), Toast.LENGTH_LONG).show();
+
+                 }
+             });
+         }
+
+ */
+     }

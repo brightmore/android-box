@@ -1,0 +1,63 @@
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.virtualLink.msiptv.app.VideoDetails"
+    android:background="@color/white"
+    >
+
+    <LinearLayout
+        android:layout_width="700dp"
+        android:layout_height="600dp"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical|center"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Small Text"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center_vertical"
+            android:id="@+id/txtTitle"
+            android:textColor="#006633"
+            android:background="#f0f0f0"
+            android:typeface="monospace"
+            android:textStyle="italic"
+            android:padding="5dp"
+            />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/mainContent">
+        <ImageView
+            android:layout_width="250dip"
+            android:layout_height="300dip"
+            android:id="@+id/poster"
+           android:src="@drawable/dummy_detail_pic"
+         />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="In this article, we will create an Android application containing listview with images and text. The listview items are loaded from a remote http json object. The images and text are loaded in listview as they get downloaded to the device."
+            android:id="@+id/txtDetail"
+            android:layout_toRightOf="@+id/poster"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_alignBottom="@+id/btnView" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnView"
+            android:background="@drawable/view_button"
+            android:layout_below="@+id/poster"
+            android:layout_toStartOf="@+id/txtDetail"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+    </LinearLayout>
+</FrameLayout>

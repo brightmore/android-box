@@ -1,0 +1,247 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:foreground="@color/black_overlay"
+    android:background="@drawable/desktopbackgrounds1"
+    tools:context="com.virtualLink.msiptv.app.Home">
+
+    <!--<FrameLayout-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:layout_gravity="center_horizontal|top"-->
+        <!--android:background="#90ffffff">-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/imgLogo"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="left|top" />-->
+
+        <!--<LinearLayout-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent"-->
+            <!--android:layout_gravity="right|top"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextClock-->
+                <!--android:id="@+id/textClock"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_horizontal" />-->
+        <!--</LinearLayout>-->
+    <!--</FrameLayout>-->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_gravity="center_vertical|center"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/bgforbuttons"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20sp"
+            android:layout_marginTop="20sp"
+            android:gravity="center"
+            android:layout_gravity="center_vertical">
+
+            <Button
+                android:id="@+id/btnDining"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:background="@drawable/dining_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/btnDining"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/btnDining"
+                android:layout_below="@+id/btnDining"
+                android:layout_toStartOf="@+id/imageView3"
+                android:text="Dining"
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnDining"
+                android:background="@drawable/spacer" />
+
+            <Button
+                android:id="@+id/btnWeather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:layout_toRightOf="@id/imageView3"
+                android:background="@drawable/weather_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/btnWeather"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/btnWeather"
+                android:layout_below="@+id/btnWeather"
+                android:layout_toStartOf="@+id/imageView3"
+                android:text="Weather"
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnWeather"
+                android:background="@drawable/spacer" />
+
+            <Button
+                android:id="@+id/btnTv"
+                android:layout_width="80dp"
+                android:layout_height="81dp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:layout_toRightOf="@id/imageView2"
+                android:adjustViewBounds="true"
+                android:background="@drawable/tv_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/btnTv"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/btnTv"
+                android:layout_below="@+id/btnTv"
+                android:text="Stations"
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnTv"
+                android:background="@drawable/spacer" />
+
+            <Button
+                android:id="@+id/btnMovies"
+                android:layout_width="80dp"
+                android:layout_height="81dp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:layout_toRightOf="@id/imageView5"
+                android:adjustViewBounds="true"
+                android:background="@drawable/movies_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/btnMovies"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/btnMovies"
+                android:layout_below="@+id/btnMovies"
+                android:text="Movies"
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnMovies"
+                android:background="@drawable/spacer" />
+
+            <Button
+                android:id="@+id/btnMusic"
+                android:layout_width="80dp"
+                android:layout_height="81dp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:layout_toRightOf="@id/imageView4"
+                android:adjustViewBounds="true"
+                android:background="@drawable/music_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/btnMusic"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/btnMusic"
+                android:layout_below="@+id/btnMusic"
+                android:text="Music"
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                android:textSize="21sp" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnMusic"
+                android:background="@drawable/spacer" />
+
+            <Button
+                android:id="@+id/btnStar"
+                android:layout_width="80dp"
+                android:layout_height="81dp"
+                android:layout_marginLeft="15sp"
+                android:layout_marginRight="15sp"
+                android:layout_toRightOf="@id/imageView6"
+                android:adjustViewBounds="true"
+                android:background="@drawable/star_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignEnd="@+id/btnStar"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/btnStar"
+                android:layout_below="@+id/btnStar"
+                android:text="Services"
+                android:textAlignment="gravity"
+                android:textColor="@color/white"
+                android:textSize="21sp"
+                android:id="@+id/textView" />
+            <ImageView
+                android:id="@+id/imageView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnMusic"
+                android:background="@drawable/spacer" />
+            <!--<Button-->
+                <!--android:id="@+id/btnRadio"-->
+                <!--android:layout_width="80dp"-->
+                <!--android:layout_height="81dp"-->
+                <!--android:adjustViewBounds="true"-->
+                <!--android:background="@drawable/radio_button"-->
+                <!--android:layout_above="@+id/textView"-->
+                <!--android:layout_toEndOf="@+id/btnStar" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignEnd="@+id/btnStar"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:layout_alignStart="@+id/btnRadio"-->
+                <!--android:layout_below="@+id/btnRadio"-->
+                <!--android:text="Radio"-->
+                <!--android:textAlignment="gravity"-->
+                <!--android:textColor="@color/white"-->
+                <!--android:textSize="21sp" />-->
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

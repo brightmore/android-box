@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pre-dex-items>
+
+    <item
+        dex="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/pre-dexed/debug/android-smart-image-view-1.0.0-b3fe3a7d456b15cffc280af5d1ff6d34faa0aaec.jar"
+        jar="/home/bright/AndroidStudioProjects/MSIPTV/app/libs/android-smart-image-view-1.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="d76ea8c3e9a60101244d6d04aff8cc75888570f0"/>
+    <item
+        dex="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-4ebcfe9c4571d37ccc61df5dbe23e09e5cdad339.jar"
+        jar="/home/bright/Desktop/android-studio/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>
+    <item
+        dex="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/pre-dexed/debug/json_simple-1.0.2-f7b291a32b8d14426027782252dfd3d8ce985bb3.jar"
+        jar="/home/bright/AndroidStudioProjects/MSIPTV/app/libs/json_simple-1.0.2.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="cf582ebd3951a2a90078a3e9c4b22188ea21c99e"/>
+    <item
+        dex="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/pre-dexed/debug/classes-5a4de95a36e6006b840f3894815ceb924ea23f19.jar"
+        jar="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f21927d22fe31889ecce94dd697a2e75b137e0ef"/>
+    <item
+        dex="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/pre-dexed/debug/internal_impl-20.0.0-ccf89149441bf8155cd78efb19c21e8c811b1391.jar"
+        jar="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/libs/internal_impl-20.0.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
+    <item
+        dex="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/pre-dexed/debug/volley-600cc0c5ff5adc3c37c0f14bcd90bba6fa2ca23b.jar"
+        jar="/home/bright/AndroidStudioProjects/MSIPTV/app/libs/volley.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="71ffb5ae15dc0741128f5b46a61ee1862d4be764"/>
+    <item
+        dex="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/pre-dexed/debug/picasso-2.4.0-1fc5deb96c844d44dfb8e466cd52a3f583152b42.jar"
+        jar="/home/bright/AndroidStudioProjects/MSIPTV/app/libs/picasso-2.4.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="f36d2d4e3a36b3259aaf9d004d29b4cdc6c1bfb2"/>
+    <item
+        dex="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/pre-dexed/debug/classes-4caa4f798b9166f9b495524dcba6ebdb3a0c31d9.jar"
+        jar="/home/bright/AndroidStudioProjects/MSIPTV/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+
+</pre-dex-items>
